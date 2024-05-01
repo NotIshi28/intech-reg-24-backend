@@ -23,7 +23,7 @@ const events = [[
     "2D Design",
     "UI Design",
     "A/V editing",
-], ["Quiz",
+], [    "Group Discussion",
     "Crossword",
     "Gaming",
     "Photography"
@@ -31,12 +31,11 @@ const events = [[
     "Competitive Programming",
     "Audio Mixing",
     "Film Making",
-    "Group Discussion",
+
 ], [
     "Hardware",
     "Cubing 2 by 2", 
-    "Cubing 3 by 3", 
-    "ML/AI Challenge"]
+    "Cubing 3 by 3"]
 ];
 
 IndexRouter.get("/", (req, res) => {
