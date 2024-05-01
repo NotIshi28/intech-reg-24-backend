@@ -18,7 +18,7 @@ const events = [[
     "App Development",
     "Web Development",
     "Game Development",
-    "Encryptid | Cryptic Hunt"
+    "Encryptid | Cryptic Hunt X CTF"
 ], ["3D Design",
     "2D Design",
     "UI Design",
@@ -29,12 +29,10 @@ const events = [[
     "Photography"
 ], [
     "Competitive Programming",
-    "Audio Mixing",
     "Film Making",
-
-], [
     "Hardware",
-    "Cubing 2 by 2", 
+    "Cubing 2 by 2",
+], [
     "Cubing 3 by 3"]
 ];
 
