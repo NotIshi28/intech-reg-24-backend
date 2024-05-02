@@ -1,5 +1,6 @@
 //Common
 require('dotenv').config();
+var cors = require('cors')
 
 //Express
 const express = require('express');
@@ -45,6 +46,7 @@ app.use((req, res, next) => {
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.json());
+app.use(cors())
 app.use('/', IndexRouter);
 app.use('/forgot', ForgotRouter);
 app.use('/callback', CallbackRouter);
