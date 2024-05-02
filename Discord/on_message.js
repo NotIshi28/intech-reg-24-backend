@@ -63,6 +63,73 @@ async function command(client, message) {
         await message.react('✅');
         await sendMessage(message, 'You are verified!');
         await message.member.roles.add(role);
+        for(let i = 0 ;i < properties.Fields.multi_select.length;i++){
+            let name = properties.Fields.multi_select[i].name
+            if(name == "UI Design"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'ui/ux')
+                await message.member.roles.add(role);
+            }
+            else if(name == "App Development"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'appD')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Web Development"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'webD')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Game Development"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'gamedev')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Encryptid | Cryptic Hunt X CTF"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'encryptid')
+                await message.member.roles.add(role);
+            }
+            else if(name == "A/V Editing"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'av')
+                await message.member.roles.add(role);
+            }
+            else if(name == "2D Design"){
+                let role = await message.guild.roles.cache.find(r => r.name == '2d')
+                await message.member.roles.add(role);
+            }
+            else if(name == "3D Design"){
+                let role = await message.guild.roles.cache.find(r => r.name == '3d')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Group Discussion"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'gd')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Competitive Programming"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'prog')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Cubing 3 by 3" || name == "Cubing 2 by 2"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'cubing')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Film Making"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'film')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Crossword"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'cross')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Gaming"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'gaming')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Photography"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'photography')
+                await message.member.roles.add(role);
+            }
+            else if(name == "Hardware"){
+                let role = await message.guild.roles.cache.find(r => r.name == 'hardware')
+                await message.member.roles.add(role);
+            }
+        }   
         await message.delete();
     }
 }

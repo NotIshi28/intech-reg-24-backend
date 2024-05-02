@@ -55,9 +55,9 @@ const transporter = nodemailer.createTransport({
 });
 
 IndexRouter.post('/register', async (req, res) => {
-    var { name, dob, email, phone, adno, grade, section, disname, selected } = await req.body;
+    var { name, dob, email, phone, adno, grade, section, selected } = await req.body;
 
-    if (!(name && dob && email && phone && adno && grade && section && disname && selected)) {
+    if (!(name && dob && email && phone && adno && grade && section && selected)) {
         return res.status(400).send("Please fill all the fields");
     }
     if (new Date(dob).getFullYear() < 2000) {
@@ -98,7 +98,7 @@ IndexRouter.post('/register', async (req, res) => {
 
     const dis_token = uuidv4();
 
-    await addItem(name, dob, email, phone, adno, grade, section, disname, selected, dis_token);
+    await addItem(name, dob, email, phone, adno, grade, section, selected, dis_token);
 
     const mailOptions = {
         from: process.env.GMAIL_EMAIL || "1997eliasparker",
@@ -149,7 +149,7 @@ const renderFile = (file, data) => {
     });
 }
 
-async function addItem(name, dob, email, phone, adno, grade, section, disname, selected, dis_token) {
+async function addItem(name, dob, email, phone, adno, grade, section, selected, dis_token) {
     try {
         const response = await notion.pages.create({
             parent: { database_id: databaseId },
@@ -214,15 +214,6 @@ async function addItem(name, dob, email, phone, adno, grade, section, disname, s
                         {
                             "type": "text",
                             "text": { "content": section }
-                        }
-                    ]
-                },
-                "DisplayName": {
-                    "type": "rich_text",
-                    "rich_text": [
-                        {
-                            "type": "text",
-                            "text": { "content": disname }
                         }
                     ]
                 },
