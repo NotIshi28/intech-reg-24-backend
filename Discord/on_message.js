@@ -57,7 +57,7 @@ async function command(client, message) {
         try {
             await message.member.setNickname(properties.Name.rich_text[0].text.content + ' | ' + properties.grade.rich_text[0].text.content + properties.section.rich_text[0].text.content);
         } catch (error) {
-            console.log(error)
+            // console.log(error)
         }
         let role = await message.guild.roles.cache.find(r => r.name == 'participant')
         await message.react('✅');
