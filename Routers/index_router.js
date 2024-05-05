@@ -37,7 +37,7 @@ const events = [[
 ];
 
 IndexRouter.get("/", (req, res) => {
-    res.render("index", { events });
+    res.redirect("https://www.techsyndicate.us/")
 });
 
 // Transport To Send Mail
