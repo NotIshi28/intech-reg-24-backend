@@ -64,7 +64,7 @@ process.on('uncaughtException', function (err) {
     fetch(process.env.WEBHOOK, {
         method: 'post',
         body: JSON.stringify({
-            content: `Uncaught Exception: ${err}`
+            // content: `Uncaught Exception: ${err}`
         }),
         headers: { 'Content-Type': 'application/json' },
     })
