@@ -105,7 +105,7 @@ async function command(client, message) {
                 let role = await message.guild.roles.cache.find(r => r.name == 'prog')
                 await message.member.roles.add(role);
             }
-            else if(name == "Cubing 3 by 3" || name == "Cubing 2 by 2"){
+            else if(name == "Cubing"){
                 let role = await message.guild.roles.cache.find(r => r.name == 'cubing')
                 await message.member.roles.add(role);
             }
