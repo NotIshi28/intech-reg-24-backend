@@ -3,15 +3,18 @@
 <body>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+        .mail {
+            padding: 20px;
+        }
     </style>
     <link rel="stylesheet" href="style.css">
-    <div id="thank-you" class="reg-container" style="background-color: black;
+    <div id="thank-you" class="reg-container mail" style="background-color: black;
     font-family: outfit;
     color: white;">
-        <h1 class="title">inTech '24 Registration</h1>
+        <h1 class="title" style="text-align: center; color: #16e16e;">inTech '24 Registration</h1>
         <div class="reg-form-2">
             <% if (age >= 13) { %>
-            <p class="thank-you-p">
+            <p class="thank-you-p" style="font-weight: 200;">
                 Hi <%= name %>, <br>
                 We have detected that you are above the age of 13, if this is a mistake please contact the core members
                 (details
