@@ -60,6 +60,15 @@
                     <p for="section">Section</p>
                     <input type="text" id="section" name="section" placeholder="A">
                 </div>
+                <div class="reg-form-div">
+					<p for="parentemail">Parent Email</p>
+					<input
+						type="text"
+						id="parentemail"
+						name="parentemail"
+						placeholder="william.doe@gmail.com"
+					/>
+				</div>
             </div>
             <div class="reg-form-div-container-parent">
                 <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
@@ -118,11 +127,12 @@
         var adno = window.document.getElementById("adno").value;
         var classs = window.document.getElementById("class").value;
         var section = window.document.getElementById("section").value;
+        var parentemail = window.document.getElementById("parentemail").value;
         if (!vehicle1) {
             notyf.error("Please ask your parents to consent for Discord!");
             return;
         }
-        if (!(name && dob && email && phone && adno && classs && section )) {
+        if (!(name && dob && email && phone && adno && classs && section && parentemail )) {
             notyf.error("Please fill all the fields");
             return;
         }
@@ -137,7 +147,7 @@
         // email regex
         var re =
             /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (!re.test(email)) {
+        if (!re.test(email) || !re.test(parentemail)) {
             notyf.error("Please enter a valid email");
             return;
         }
@@ -180,6 +190,7 @@
         var adno = window.document.getElementById("adno").value;
         var classs = window.document.getElementById("class").value;
         var section = window.document.getElementById("section").value;
+        var parentemail = window.document.getElementById("parentemail").value;
         if (selected.length == 0) {
             notyf.error("Please select atleast one field");
             return;
@@ -192,7 +203,8 @@
             adno: adno,
             grade: classs,
             section: section,
-            selected: selected
+            selected: selected,
+            parentemail: parentemail
         });
         window.document.getElementById('regis').disabled = true;
         await fetch("/register", {

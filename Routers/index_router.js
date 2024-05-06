@@ -38,7 +38,8 @@ const events = [[
 
 IndexRouter.get("/", (req, res) => {
     // res.render('email', { age: 10, dis_token:"lmfao", name:"hello" , selected:['helo',  'helo'] })
-    res.redirect('https://www.techsyndicate.us/')
+    // res.redirect('https://www.techsyndicate.us/')
+    res.render("index", { events });
 });
 
 // Transport To Send Mail
@@ -56,9 +57,9 @@ const transporter = nodemailer.createTransport({
 });
 
 IndexRouter.post('/register', async (req, res) => {
-    var { name, dob, email, phone, adno, grade, section, selected } = await req.body;
+    var { name, dob, email, phone, adno, grade, section, selected, parentemail } = await req.body;
 
-    if (!(name && dob && email && phone && adno && grade && section && selected)) {
+    if (!(name && dob && email && phone && adno && grade && section && selected && parentemail)) {
         return res.status(400).send("Please fill all the fields");
     }
     if (new Date(dob).getFullYear() < 2000) {
@@ -69,7 +70,7 @@ IndexRouter.post('/register', async (req, res) => {
     }
     // email regex
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    if (!re.test(email)) {
+    if (!re.test(email) || !re.test(parentemail)) {
         return res.status(400).send("Please enter a valid email");
     }
     if (adno.length < 4) {
@@ -99,10 +100,10 @@ IndexRouter.post('/register', async (req, res) => {
 
     const dis_token = uuidv4();
 
-    await addItem(name, dob, email, phone, adno, grade, section, selected, dis_token);
+    await addItem(name, dob, email, phone, adno, grade, section, selected, dis_token, parentemail);
 
     const mailOptions = {
-        from: process.env.GMAIL_EMAIL || "1997eliasparker",
+        from: process.env.GMAIL_EMAIL,
         to: email,
         subject: 'InTech Registration Details',
         html: await renderFile('./views/email.ejs', { age: getAge(new Date(dob.toString())), dis_token, name , selected })
@@ -150,7 +151,7 @@ const renderFile = (file, data) => {
     });
 }
 
-async function addItem(name, dob, email, phone, adno, grade, section, selected, dis_token) {
+async function addItem(name, dob, email, phone, adno, grade, section, selected, dis_token, parentemail) {
     try {
         const response = await notion.pages.create({
             parent: { database_id: databaseId },
@@ -170,6 +171,15 @@ async function addItem(name, dob, email, phone, adno, grade, section, selected, 
                         {
                             "type": "text",
                             "text": { "content": email }
+                        }
+                    ]
+                },
+                "Parent Email": {
+                    "type": "rich_text",
+                    "rich_text": [
+                        {
+                            "type": "text",
+                            "text": { "content": parentemail }
                         }
                     ]
                 },
