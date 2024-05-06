@@ -37,9 +37,8 @@ const events = [[
 ];
 
 IndexRouter.get("/", (req, res) => {
-    // res.render('email', { age: 10, dis_token:"lmfao", name:"hello" , selected:['helo',  'helo'] })
-    // res.redirect('https://www.techsyndicate.us/')
-    res.render("index", { events });
+    // res.redirect('https://www.techsyndicate.us/tg')
+    res.render("index", { events }); // iska frontend access sirf netlify wali site se kr
 });
 
 // Transport To Send Mail
@@ -60,7 +59,7 @@ IndexRouter.post('/register', async (req, res) => {
     var { name, dob, email, phone, adno, grade, section, selected, parentemail } = await req.body;
 
     if (!(name && dob && email && phone && adno && grade && section && selected && parentemail)) {
-        return res.status(400).send("Please fill all the fields");
+        return res.status(400).send(JSON.stringify({"error":"Please fill all the fields"}));
     }
     if (new Date(dob).getFullYear() < 2000) {
         return res.status(400).send("Please enter a valid date of birth");
