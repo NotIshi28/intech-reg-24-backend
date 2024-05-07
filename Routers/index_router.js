@@ -37,8 +37,8 @@ const events = [[
 ];
 
 IndexRouter.get("/", (req, res) => {
-    // res.redirect('https://www.techsyndicate.us/tg')
-    res.render("index", { events }); // iska frontend access sirf netlify wali site se kr
+    res.redirect('https://www.techsyndicate.us/tg')
+    // res.render("index", { events }); // iska frontend access sirf netlify wali site se kr
 });
 
 // Transport To Send Mail
@@ -209,7 +209,7 @@ async function addItem(name, dob, email, phone, adno, grade, section, selected, 
                         }
                     ]
                 },
-                "grade": {
+                "Grade": {
                     "type": "rich_text",
                     "rich_text": [
                         {
@@ -218,7 +218,7 @@ async function addItem(name, dob, email, phone, adno, grade, section, selected, 
                         }
                     ]
                 },
-                "section": {
+                "Section": {
                     "type": "rich_text",
                     "rich_text": [
                         {
