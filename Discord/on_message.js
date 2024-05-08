@@ -24,13 +24,13 @@ module.exports = async (client, message) => {
 async function command(client, message) {
     if (message.content.startsWith('verify')) {
         token = message.content.slice(7);
+        console.log(token)
         if (token.length == 0) {
             await message.react('❌');
             await sendMessage(message,'Please use a valid token.');
             await message.delete();
             return;
         }
-
         var response = await notion.databases.query({
             database_id: databaseId,
             filter: {
@@ -45,6 +45,7 @@ async function command(client, message) {
             }
         });
         console.log(JSON.parse(JSON.stringify(response)));
+        console.log(response.results[0].properties)
         if (!response.results.length > 0) {
             await message.react('❌');
             await sendMessage(message, 'Invalid token.');
@@ -52,12 +53,12 @@ async function command(client, message) {
             return;
         }
         var properties = (await response.results[0].properties);
-        console.log(properties.Name.rich_text[0].text.content + ' | ' + properties.grade.rich_text[0].text.content + properties.section.rich_text[0].text.content)
+        console.log(properties.Name.rich_text[0].text.content + ' | ' + properties.Grade.rich_text[0].text.content + properties.Section.rich_text[0].text.content)
         // console.log(properties)
         try {
-            await message.member.setNickname(properties.Name.rich_text[0].text.content + ' | ' + properties.grade.rich_text[0].text.content + properties.section.rich_text[0].text.content);
+            await message.member.setNickname(properties.Name.rich_text[0].text.content + ' | ' + properties.Grade.rich_text[0].text.content + properties.Section.rich_text[0].text.content);
         } catch (error) {
-            // console.log(error)
+            console.log(error)
         }
         let role = await message.guild.roles.cache.find(r => r.name == 'participant')
         await message.react('✅');
