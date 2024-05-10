@@ -64,6 +64,7 @@ async function command(client, message) {
         await message.react('✅');
         await sendMessage(message, 'You are verified!');
         await message.member.roles.add(role);
+        await message.delete();
         for(let i = 0 ;i < properties.Fields.multi_select.length;i++){
             let name = properties.Fields.multi_select[i].name
             if(name == "UI Design"){
@@ -131,7 +132,6 @@ async function command(client, message) {
                 await message.member.roles.add(role);
             }
         }   
-        await message.delete();
     }
 }
 
