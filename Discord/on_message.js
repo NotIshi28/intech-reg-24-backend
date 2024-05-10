@@ -57,12 +57,12 @@ async function command(client, message) {
         // console.log(properties)
         try {
             await message.member.setNickname(properties.Name.rich_text[0].text.content + ' | ' + properties.Grade.rich_text[0].text.content + properties.Section.rich_text[0].text.content);
+            await sendMessage(message, 'You are verified!');
         } catch (error) {
             console.log(error)
         }
         let role = await message.guild.roles.cache.find(r => r.name == 'participant')
         await message.react('✅');
-        await sendMessage(message, 'You are verified!');
         await message.member.roles.add(role);
         await message.delete();
         for(let i = 0 ;i < properties.Fields.multi_select.length;i++){
