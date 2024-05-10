@@ -206,6 +206,8 @@
             selected: selected,
             parentemail: parentemail
         });
+        window.document.getElementById("reg-container-2").style.display = "none";
+        window.document.getElementById("thank-you").style.display = "flex";
         window.document.getElementById('regis').disabled = true;
         await fetch("/register", {
             method: "POST",
@@ -221,8 +223,6 @@
                 window.document.getElementById('regis').disabled = false;
                 return;
             }
-            window.document.getElementById("reg-container-2").style.display = "none";
-            window.document.getElementById("thank-you").style.display = "flex";
         });
     }
 </script>
