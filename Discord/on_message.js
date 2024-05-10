@@ -25,7 +25,7 @@ async function command(client, message) {
     if (message.content.startsWith('verify')) {
         token = message.content.slice(7);
         console.log(token)
-        if (token.length == 0) {
+        if (token.length < 36) {
             await message.react('❌');
             await sendMessage(message,'Please use a valid token.');
             await message.delete();
