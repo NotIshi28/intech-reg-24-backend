@@ -1,6 +1,6 @@
 <html>
 
-<body style="background-color: #1E1E1E; padding: 20px">
+<body style="padding: 20px; color: #000">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
         .im{
@@ -8,11 +8,11 @@
         }
     </style>
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <div id="thank-you" class="reg-container mail" style="font-family: sans-serif;padding: 20px 40px; width: 30%; margin: auto; background-color: #000; color: white; border-radius: 10px; min-width: 400px;">
+    <div id="thank-you" class="reg-container mail" style="font-family: sans-serif;padding: 20px 40px; width: 30%; margin: auto; border-radius: 10px; min-width: 400px;">
         <div class="" style="display: flex; justify-content: center;">
             <img src="https://drive.lienuc.com/uc?id=1DyvXNJ-3T83kFhl4UK8wV482LFuJ6ymQ" alt="" width="35%" crossorigin="anonymous">
         </div>
-        <h1 class="title" style="text-align: center; color: #16e16e;">inTech '24 Registration</h1>
+        <h1 class="title" style="text-align: center;">inTech '24 Registration</h1>
         <div class="reg-form-2">
             <% if (age >= 13) { %>
                 <p class="thank-you-p">
@@ -24,14 +24,14 @@
                 We request you to join the discord server and the whatsapp group (links below)
                 <br>
                 Your discord verification code is
-                "<span style="color: #16e16e;"><%= dis_token %></span>". Please
+                "<span ><%= dis_token %></span>". Please
                 send the command "ts verify
-                <span style="color: #16e16e;"><%= dis_token %></span>", In the Unverified chat channel. <br><br>
+                <span><%= dis_token %></span>", In the Unverified chat channel. <br><br>
                 It will grant you access to the server and set your display name to the one you selected while
                 registering and allot the fields you had chosen.
                 <br>
                 <br>
-                <span style="font-weight: 400; color: #16e16e;">Fields you have chosen:</span>
+                <span style="font-weight: 400; ">Fields you have chosen:</span>
                 <ul>
                     <% selected.forEach(field => { %>
                         <li><%= field %></li>
@@ -40,10 +40,10 @@
                     <br>
                     <div class="buttons" style="display: flex; flex-direction: row; align-items: center; justify-content: center;gap: 10px;">
                         <a href="https://techsyndicate.us/24/discord" style="text-decoration: none; width: 35%; display: flex; justify-content: center;">
-                            <button style="background-color: #16e16e; font-family: sans-serif; padding: 10px 0; border-radius: 10px; font-size: 1em; border: none; cursor: pointer; width: 90%;">Discord</button>
+                            <button style="font-family: sans-serif; padding: 10px 0; border-radius: 10px; font-size: 1em; border: none; cursor: pointer; width: 90%;">Discord</button>
                         </a>
                         <a href="https://techsyndicate.us/24/wh" style="text-decoration: none; width: 35%; display: flex; justify-content: center;">
-                            <button style="background-color: #16e16e; font-family: sans-serif; padding: 10px 0; border-radius: 10px; font-size: 1em; border: none; cursor: pointer; width: 90%;">Whatsapp</button>
+                            <button style="font-family: sans-serif; padding: 10px 0; border-radius: 10px; font-size: 1em; border: none; cursor: pointer; width: 90%;">Whatsapp</button>
                         </a>
                     </div>
                 <br>
@@ -66,7 +66,7 @@
                     Please join the whatsapp group for announcements (link below)
                     <br>
                     <br>
-                    <span style="font-weight: 400; color: #16e16e;">Fields you have chosen:</span>
+                    <span style="font-weight: 400;">Fields you have chosen:</span>
                     <ul>
                         <% selected.forEach(field => { %>
                             <li><%= field %></li>
@@ -75,7 +75,7 @@
                         <br>
                         <div class="buttons"  style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly;">
                             <a href="https://techsyndicate.us/24/wh" style="text-decoration: none;">
-                        <button style="background-color: #16e16e; font-family: sans-serif; padding: 10px 30px; border-radius: 10px; font-size: 1em; border: none; cursor: pointer;">Whatsapp</button>
+                        <button style="font-family: sans-serif; padding: 10px 30px; border-radius: 10px; font-size: 1em; border: none; cursor: pointer;">Whatsapp</button>
                     </a>
                 </div>
                 <br><br>
