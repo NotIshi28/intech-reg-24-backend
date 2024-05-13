@@ -1,95 +1,50 @@
 <html>
 
-<body style="padding: 20px; color: #000">
+<body style="padding: 20px;">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-        .im{
-            color: white !important;
+        * { 
+            color: #000;
+            font-family: "Arial";
+        }
+        body {
+            background: #fff;
         }
     </style>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <div id="thank-you" class="reg-container mail" style="font-family: sans-serif;padding: 20px 40px; width: 30%; margin: auto; border-radius: 10px; min-width: 400px;">
-        <div class="" style="display: flex; justify-content: center;">
-            <img src="https://drive.lienuc.com/uc?id=1DyvXNJ-3T83kFhl4UK8wV482LFuJ6ymQ" alt="" width="35%" crossorigin="anonymous">
-        </div>
-        <h1 class="title" style="text-align: center;">inTech '24 Registration</h1>
-        <div class="reg-form-2">
-            <% if (age >= 13) { %>
-                <p class="thank-you-p">
-                    Hi <%= name %>, <br>
-                    We have detected that you are above the age of 13, if this is a mistake please contact the core members
-                    (details
-                    given below).<br> <br>
+    <h1>inTech' 24</h1>
+    Hi <%= name %>! <br><br>
+    Thank you for registering for inTech 2024, We have detected that you are above the age of 13, if this is a mistake please contact the core members
+    (details
+    given below)<br><br>
 
-                We request you to join the discord server and the whatsapp group (links below)
-                <br>
-                Your discord verification code is
-                "<span ><%= dis_token %></span>". Please
-                send the command "ts verify
-                <span><%= dis_token %></span>", In the Unverified chat channel. <br><br>
-                It will grant you access to the server and set your display name to the one you selected while
-                registering and allot the fields you had chosen.
-                <br>
-                <br>
-                <span style="font-weight: 400; ">Fields you have chosen:</span>
-                <ul>
-                    <% selected.forEach(field => { %>
-                        <li><%= field %></li>
-                        <% }) %>
-                    </ul>
-                    <br>
-                    <div class="buttons" style="display: flex; flex-direction: row; align-items: center; justify-content: center;gap: 10px;">
-                        <a href="https://techsyndicate.us/24/discord" style="text-decoration: none; width: 35%; display: flex; justify-content: center;">
-                            <button style="font-family: sans-serif; padding: 10px 0; border-radius: 10px; font-size: 1em; border: none; cursor: pointer; width: 90%;">Discord</button>
-                        </a>
-                        <a href="https://techsyndicate.us/24/wh" style="text-decoration: none; width: 35%; display: flex; justify-content: center;">
-                            <button style="font-family: sans-serif; padding: 10px 0; border-radius: 10px; font-size: 1em; border: none; cursor: pointer; width: 90%;">Whatsapp</button>
-                        </a>
-                    </div>
-                <br>
-                <br>
-                In case you face any issues, please feel free to DM any core members.<br>
-                <br>
-                Regards, <br>
-                Yuvraj Mehta, President  (+91 9667080504)<br>
-                Nishant Navani, Vice President (+91 98213 82404)
-                <br><br>
-                Revolutionize! <br>                
-            </p>
-            <% } else { %>
-                <p class="thank-you-p">
-                    Hi <%= name %>, <br>
-                    We have detected that you are under the age of 13, if this is a mistake please contact the core members
-                    (details
-                    given below).<br> <br>
-                    
-                    Please join the whatsapp group for announcements (link below)
-                    <br>
-                    <br>
-                    <span style="font-weight: 400;">Fields you have chosen:</span>
-                    <ul>
-                        <% selected.forEach(field => { %>
-                            <li><%= field %></li>
-                            <% }) %>
-                        </ul>
-                        <br>
-                        <div class="buttons"  style="display: flex; flex-direction: row; align-items: center; justify-content: space-evenly;">
-                            <a href="https://techsyndicate.us/24/wh" style="text-decoration: none;">
-                        <button style="font-family: sans-serif; padding: 10px 30px; border-radius: 10px; font-size: 1em; border: none; cursor: pointer;">Whatsapp</button>
-                    </a>
-                </div>
-                <br><br>
-                In case you face any issues, please feel free to DM any core members.<br>
-                <br>
-                Regards, <br>
-                Yuvraj Mehta, President  (+91 9667080504)<br>
-                Nishant Navani, Vice President (+91 98213 82404)
-                <br><br>
-                Revolutionize! <br>            </p>
-            <% } %>
-        </div>
-    </div>
+    We request you to join the discord server at - <a style="color: #16e16e;" href="https://techsyndicate.us/24/discord">https://techsyndicate.us/24/discord</a> as all communication will take place there. <br>
+    We also request you to join the whatsapp group at - <a style="color: #16e16e;" href="https://techsyndicate.us/24/wh">https://techsyndicate.us/24/wh</a> for important announcements. 
     
-</body>
+    <br>
+    <br>
+    Your discord verifcation code is "<span style="color: #16e16e;"><%= token %></span>". Please send the command "<span style="color: #16e16e;">ts verify <%= token %></span>" in the unverified channel.
+    <br>
+    It will grant you access to the server and set your display name to the one you selected while registration and allot the fields you had chosen.
+    <br>
+    <br>
+    <span style="font-weight: 400; ">Fields you have chosen:</span>
+    <ul>
+        <% selected.forEach(field => { %>
+            <li><%= field %></li>
+            <% }) %>
+    </ul>
+    <br>
 
+
+
+    In case you face any issues, please feel free to DM any core members.
+    <br>
+    <br>
+    Regards, <br>
+    Yuvraj Mehta, President  (+91 9667080504)<br>
+    Nishant Navani, Vice President (+91 98213 82404)
+    <br>
+    <br>
+    Revolutionize! <br>   
+</body>
 </html>
