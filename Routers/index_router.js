@@ -38,7 +38,8 @@ const events = [[
 
 IndexRouter.get("/", (req, res) => {
     // res.redirect('https://www.techsyndicate.us/tg')
-    res.render("index", { events }); // iska frontend access sirf netlify wali site se kr
+    // res.render("index", { events }); // iska frontend access sirf netlify wali site se kr
+    res.render('email', { age: 10, dis_token:"lmfao", name:"hello" , selected:['helo',  'helo'] })
 });
 
 // Transport To Send Mail
