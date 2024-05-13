@@ -37,8 +37,8 @@ const events = [[
 ];
 
 IndexRouter.get("/", (req, res) => {
-    res.redirect('https://www.techsyndicate.us/tg')
-    // res.render("index", { events }); // iska frontend access sirf netlify wali site se kr
+    // res.redirect('https://www.techsyndicate.us/tg')
+    res.render("index", { events }); // iska frontend access sirf netlify wali site se kr
 });
 
 // Transport To Send Mail
